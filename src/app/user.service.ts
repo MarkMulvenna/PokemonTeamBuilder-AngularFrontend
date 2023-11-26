@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { AuthService } from './authservice.component';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private authService: AuthService) {}
 
   postNewUser(username: string, email: string, password: string) {
     const headers = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' });
@@ -20,17 +21,8 @@ export class UserService {
     const headers = new HttpHeaders({
       'Authorization': 'Basic ' + btoa(userName + ':' + password)
     });
-
-    return this.http.get('http://localhost:5000/api/v1.0/login');
-  }
-
-  saveToken(token: string): void {
-    sessionStorage.setItem('token', token);
-  }
-
-  getToken(): string | null {
-    return sessionStorage.getItem('token');
-  }
-
   
+    return this.http.get('http://localhost:5000/api/v1.0/login', { headers });
+  }
+ 
 }

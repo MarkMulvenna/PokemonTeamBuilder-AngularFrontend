@@ -2,6 +2,6 @@
 html, body {
     min-height: 100%;
     margin: 0;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-family:'Pixelify Sans', sans-serif;
     background: linear-gradient(to bottom right, #00008B, #0f920f);
   }

@@ -15,6 +15,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { NavComponent } from './nav.component';
 import { PokemonDetailedComponent } from './pokemon-detailed-view.component';
+import { LoginComponent } from './login.component';
 
 var routes: any = [
   {
@@ -32,6 +33,10 @@ var routes: any = [
   {
     path: 'register',
     component: RegisterComponent
+  },
+  {
+  path: 'login',
+  component: LoginComponent
   }
 ];
 
@@ -42,6 +47,7 @@ var routes: any = [
     PokemonDetailedComponent,
     HomeComponent,
     RegisterComponent,
+    LoginComponent,
     NavComponent
     
   ],
