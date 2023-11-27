@@ -21,8 +21,7 @@ export class UserService {
     const headers = new HttpHeaders({
       'Authorization': 'Basic ' + btoa(userName + ':' + password)
     });
-  
+    
     return this.http.get('http://localhost:5000/api/v1.0/login', { headers });
   }
- 
 }
