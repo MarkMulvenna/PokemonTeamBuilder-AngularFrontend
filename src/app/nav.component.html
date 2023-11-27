@@ -15,7 +15,7 @@
     .navbar a {
       color: white;
       text-decoration: none;
-      margin-left: 1rem;
+      margin-left: 10px;
     }
     .navbar a:hover {
       color: #e91e63;
@@ -33,6 +33,10 @@
         <a href="/pokemon"><i class="fas fa-users"></i> Pokemon </a>
          <a href="/home"><i class="fas fa-user-shield"></i> My Teams </a>
          <a href="/"><i class="fas fa-users"></i> Meta Teams </a>
+         <a [href]="authService.getLoggedIn() ? '/account' : '/login'">
+          <i class="fas fa-{{ authService.getLoggedIn() ? 'user-shield' : 'sign-in-alt' }}"></i>
+          {{ authService.getLoggedIn() ? 'My Account' : 'Login' }}
+        </a>        
          <a href="/login"><i class="fas fa-user-shield"></i> Admin Tools</a>
        </div>
 </div>

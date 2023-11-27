@@ -5,7 +5,7 @@ import { BehaviorSubject } from "rxjs";
     providedIn: 'root',
   })
   export class AuthService {
-    private loggedIn = new BehaviorSubject<boolean>(false);
+    //private loggedIn = this.getToken != null;
 
     saveToken(token: string): void {
         sessionStorage.setItem('token', token);
@@ -14,4 +14,10 @@ import { BehaviorSubject } from "rxjs";
       getToken(): string | null {
         return sessionStorage.getItem('token');
       }
+    
+    getLoggedIn() {
+      console.log(this.getToken() != null);
+      return this.getToken() != null;
+      
+    }
   }

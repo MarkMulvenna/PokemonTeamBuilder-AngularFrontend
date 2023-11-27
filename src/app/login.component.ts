@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { UserService } from './user.service';
 import { AuthService } from './authservice.component';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'login',
@@ -12,7 +14,7 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, public userService: UserService, private authService: AuthService) {
+  constructor(private formBuilder: FormBuilder, public userService: UserService, private authService: AuthService, private router: Router) {
     this.loginForm = this.formBuilder.group({
       username: '',
       password: '',
@@ -30,6 +32,7 @@ export class LoginComponent implements OnInit {
           (response : any) => {
             console.log('User Logged In:', response);
             this.authService.saveToken(response.token)
+            this.router.navigate(['']);
           },
           (error) => {
             console.error('Error finding user:', error);
